@@ -10,6 +10,15 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "14-products-one-weekend",
+    title: "We Shipped 14 Products in One Weekend. Here's What Actually Happened.",
+    description: "Our AI factory validated 47 ideas, killed 15, and built the 14 highest-confidence survivors end-to-end — spec, code, security audit, deploy. No human wrote a line of code.",
+    date: "February 11, 2026",
+    readTime: "8 min read",
+    category: "Behind the Scenes",
+    published: true,
+  },
+  {
     slug: "introducing-greenbelt",
     title: "Introducing Greenbelt: The AI Venture Studio That Builds What Survives",
     description: "We built an autonomous venture studio that validates startup ideas against 1,310+ real failure patterns, then builds the ones that survive. Here's why.",
@@ -39,6 +48,85 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const postContent: Record<string, string> = {
+  "14-products-one-weekend": `Everyone talks about shipping fast. We wanted to see what happens when you remove humans from the loop entirely and let an AI factory build real products — not demos, not mockups, but production apps with authentication, billing, and security hardening.
+
+Here's the honest account of what happened.
+
+## The Setup
+
+We had 47 venture ideas sitting in our pipeline. Some came from signal intelligence (scanning HackerNews, Reddit, Product Hunt, marketplace reviews). Some came from our VaaS users validating their own ideas. All had been through initial screening, but none had faced our Guardian.
+
+**The Guardian** is our adversarial AI. It doesn't validate ideas — it tries to kill them. Three rounds of structured debate: a Builder AI argues the strongest case for why the idea will work, the Guardian systematically attacks it using 1,310+ documented startup failure patterns, and a Blind Adjudicator weighs the evidence.
+
+## The Massacre
+
+We fed all 47 through the Guardian. It took about 2 hours and cost $43 in API calls.
+
+**Results:**
+- 32 survived as CONDITIONAL_GO (68-78% confidence)
+- 12 were killed outright (NO_GO)
+- 3 needed fundamental pivots (PIVOT_REQUIRED)
+
+That's a 32% kill rate. The Guardian caught ideas that looked great on the surface but had fatal flaws: markets already cornered by well-funded incumbents, regulatory landmines, unit economics that could never work.
+
+We raised the bar further: only ideas scoring 74% or higher would get built. That left us with **14 survivors**.
+
+## The Factory
+
+For each of the 14, the factory ran a 5-stage pipeline:
+
+**1. SpecWriter** — An AI agent generates a comprehensive technical specification. Not just "build a landing page." Full API routes, data models, authentication flows, billing integration, every page. This is the blueprint.
+
+**2. Template Composition** — Instead of generating code from scratch (which produces garbage), we compose from a library of 3,400 lines of battle-tested template modules: auth, billing, schema, email, and ops. These patterns have been hardened through real deployments.
+
+**3. Domain Code Generation** — AI generates the venture-specific code: landing pages, dashboards, pricing pages, domain-specific API routes. This is built ON TOP of the hardened templates, not from scratch.
+
+**4. FactoryPolish** — An automated quality pass that adds 11 production improvements to every app: rate limiting, health check endpoints, auth middleware, error boundaries, 404 pages, loading skeletons, structured logging, environment validation, robots.txt, sitemaps, and .env templates. 154 fixes across 14 ventures.
+
+**5. CodeBreaker** — An adversarial security agent that attacks the finished code. It found 83 vulnerabilities across the 14 products (6 critical, 29 high severity) and auto-patched 35 of them. Auth bypasses, error message leaks, rate limit memory leaks — real issues that would have hit users in production.
+
+Each venture was then pushed to GitHub and auto-deployed to Vercel. Total time: about 3 hours for all 14.
+
+## What We Learned
+
+**1. Template composition beats pure generation.** Early factory attempts generated everything from scratch. The result was "costume code" — it looked like a SaaS app but fell apart the moment a real user touched it. Composing from hardened templates gives you a PFI (Product Functionality Index) floor of 65. Pure generation starts at 25-30.
+
+**2. The Guardian saves real money.** Those 12 killed ideas would have cost $96-180 each to build. That's $1,152-$2,160 in wasted build costs avoided. The Guardian debates cost $43 total. The ROI on adversarial validation is absurd.
+
+**3. Security can't be an afterthought.** CodeBreaker found critical auth bypasses in EVERY venture. The generated auth middleware checked for session cookies but didn't validate them properly. Without CodeBreaker, we would have deployed 14 apps with broken authentication.
+
+**4. 72% is suspicious.** Our first beta tester ran 3 ideas and got 72% confidence on all three. The adjudicator AI was anchoring on a "safe" number instead of truly differentiating. We fixed this with explicit calibration instructions — but it's a reminder that AI systems need constant calibration.
+
+## The Numbers
+
+| Metric | Value |
+|--------|-------|
+| Ideas evaluated | 47 |
+| Ideas killed | 15 (32%) |
+| Ideas built | 14 |
+| Guardian debate cost | $43 |
+| Build pipeline cost | ~$140 |
+| Vulnerabilities found | 83 |
+| Vulnerabilities auto-fixed | 35 |
+| Production fixes applied | 154 |
+| Time (total) | ~5 hours |
+| Human code written | 0 lines |
+
+## What's Next
+
+These 14 products are live but early. They have real auth, real billing, real security — but the domain logic is AI-generated and needs real users to validate it. Some will get traction. Most won't. That's the portfolio approach working as designed.
+
+The bigger story is the system itself. We're opening it up:
+
+- **Validate your idea for free** at [vaas-greenbelt.vercel.app](https://vaas-greenbelt.vercel.app)
+- **Get the full Guardian debate** with a Pro subscription ($29/mo)
+- **Have us build it** through our Build-as-a-Service offering
+
+The factory that built 14 products this weekend can build yours too. The only question is whether your idea survives the Guardian first.
+
+---
+
+*Greenbelt is an AI venture studio. We validate, build, and ship. [Learn more →](https://projectgreenbelt.com)*`,
   "introducing-greenbelt": `Most startup tools help you build faster. We built one that tells you whether you should build at all.
 
 Greenbelt is an AI venture studio. We validate startup ideas using adversarial AI, then build and ship the ones that survive. Today we're opening the doors — starting with our validation engine, which anyone can try for free.
