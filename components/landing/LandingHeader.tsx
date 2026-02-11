@@ -32,9 +32,6 @@ export default function LandingHeader() {
           </a>
         </nav>
         <div className="flex items-center gap-2">
-          <a href={APP_URL}>
-            <Button variant="ghost" size="sm">Sign In</Button>
-          </a>
           <a href={VAAS_URL} target="_blank" rel="noopener noreferrer">
             <Button
               variant="default"
