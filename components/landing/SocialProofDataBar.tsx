@@ -15,7 +15,8 @@ function formatNumber(num: number): string {
   return num.toString();
 }
 
-const API_URL = "https://greenbelt-orchestrator-production.up.railway.app";
+// Proxy through our own API route to avoid CORS issues
+const API_URL = "";
 
 export default function SocialProofDataBar() {
   const [stats, setStats] = useState<ProductionStats | null>(null);
