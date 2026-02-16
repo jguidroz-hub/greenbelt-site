@@ -3,12 +3,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 
 const ventures = [
-  { name: "HabitStreak", tagline: "Build lasting habits with streak tracking", url: "https://habitstreak.io", pfi: 81, category: "Productivity" },
-  { name: "ScriptShift", tagline: "Migrate Shopify Scripts before the deadline", url: "https://scriptshift.vercel.app", pfi: 76, category: "Shopify" },
+  { name: "HabitStreak", tagline: "Build lasting habits with streak tracking & social accountability", url: "https://habitstreak.io", pfi: 81, category: "Productivity" },
+  { name: "TaxPal", tagline: "Estimated tax calculator, expense tracker & quarterly payments for freelancers", url: "https://taxpal-kappa.vercel.app", pfi: 82, category: "Finance" },
+  { name: "FounderCounsel", tagline: "AI-powered legal document generator for startups — NDAs, SAFEs, and more", url: "https://foundercounsel.vercel.app", pfi: 79, category: "Legal" },
+  { name: "ComplianceOS", tagline: "Interactive GDPR, CCPA, SOC 2 & HIPAA compliance checklists for small business", url: "https://complianceos-eight.vercel.app", pfi: 78, category: "Compliance" },
+  { name: "OutcomeFlow", tagline: "Value-based billing analytics — connect product usage to revenue outcomes", url: "https://outcomeflow-rho.vercel.app", pfi: 77, category: "Analytics" },
+  { name: "ScriptShift", tagline: "Migrate Shopify Scripts before the June 2026 deadline", url: "https://scriptshift.vercel.app", pfi: 76, category: "Shopify" },
   { name: "BoostCart", tagline: "Smart upsells for BigCommerce stores", url: "https://boostcart-upsell.vercel.app", pfi: 76, category: "BigCommerce" },
-  { name: "StudioOS", tagline: "All-in-one studio management for creators", url: "https://studioos-delta.vercel.app", pfi: 75, category: "SaaS" },
-  { name: "KPI Compass", tagline: "Track the metrics that matter", url: "https://kpi-compass-three.vercel.app", pfi: 75, category: "Analytics" },
-  { name: "Inventory Watchdog", tagline: "Never miss a stockout again", url: "https://shopify-inventory-watchdog.vercel.app", pfi: 74, category: "Shopify" },
+  { name: "StudioOS", tagline: "All-in-one studio management for architects & designers", url: "https://studioos-delta.vercel.app", pfi: 75, category: "SaaS" },
+  { name: "Inventory Watchdog", tagline: "Real-time Shopify stock monitoring & reorder alerts", url: "https://shopify-inventory-watchdog.vercel.app", pfi: 74, category: "Shopify" },
 ];
 
 function getPfiColor(pfi: number) {
