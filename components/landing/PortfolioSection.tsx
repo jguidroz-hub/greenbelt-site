@@ -41,7 +41,11 @@ const ventures: Venture[] = [
   { name: "ReferralFlow AI", tagline: "Automated e-commerce referral & affiliate programs", url: "https://referralflow-ai-automated-e-commerce-referral-affili-1925u5zye.vercel.app", pfi: 83, category: "E-Commerce" },
 
   // SaaS / Productivity
-  { name: "HabitStreak", tagline: "Build lasting habits with streak tracking & analytics", url: "https://habitstreak.io", pfi: 81, category: "SaaS" },
+  { name: "HabitStreak", tagline: "Build lasting habits with streak tracking & social sharing", url: "https://habitstreak.io", pfi: 81, category: "SaaS" },
+  { name: "TaxPal", tagline: "Estimated tax calculator, expense tracker & reports for freelancers", url: "https://taxpal-kappa.vercel.app", pfi: 82, category: "SaaS" },
+  { name: "FounderCounsel", tagline: "AI legal document generator for startups — NDAs, SAFEs & more", url: "https://foundercounsel.vercel.app", pfi: 79, category: "SaaS" },
+  { name: "ComplianceOS", tagline: "Interactive GDPR, CCPA, SOC 2 & HIPAA compliance checklists", url: "https://complianceos-eight.vercel.app", pfi: 78, category: "Operations" },
+  { name: "OutcomeFlow", tagline: "Value-based billing analytics for SaaS teams", url: "https://outcomeflow-rho.vercel.app", pfi: 77, category: "Analytics" },
   { name: "StudioOS", tagline: "All-in-one studio management for creators", url: "https://studioos-delta.vercel.app", pfi: 75, category: "SaaS" },
   { name: "OnboardFlow", tagline: "Interactive remote training modules for teams", url: "https://onboardflow-interactive-remote-trai.vercel.app", pfi: 83, category: "SaaS" },
   { name: "PIP Pilot", tagline: "AI-assisted performance improvement plans", url: "https://pip-pilot-ai-assisted-performance-i.vercel.app", pfi: 83, category: "SaaS" },

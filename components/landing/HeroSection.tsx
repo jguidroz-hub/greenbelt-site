@@ -12,7 +12,7 @@ export default function HeroSection() {
   const features = [
     { icon: Shield, text: "Adversarial AI validation", color: "text-rose-400" },
     { icon: Factory, text: "Autonomous product factory", color: "text-cyan-400" },
-    { icon: Rocket, text: "9 live products shipped", color: "text-emerald-400" },
+    { icon: Rocket, text: "40+ live products shipped", color: "text-emerald-400" },
   ];
 
   return (
