@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, CheckCircle2, AlertTriangle, XCircle, Wrench } from "lucide-react";
+import { ExternalLink, CheckCircle2, AlertTriangle, XCircle, Wrench, Loader2 } from "lucide-react";
 
 type Status = "live" | "building" | "broken" | "killed";
 type Category = "All" | "SaaS" | "E-Commerce" | "DevTools" | "AI/ML" | "Analytics" | "Operations";
@@ -14,218 +14,27 @@ interface Venture {
   url: string | null;
   status: Status;
   statusNote: string;
-  category: Category;
+  category: string;
   hasStripe: boolean;
   pfi: number | null;
 }
 
-const ventures: Venture[] = [
-  // === LIVE — Actually working, deployed, accessible ===
-  {
-    name: "HabitStreak",
-    tagline: "Build lasting habits with streak tracking & social accountability",
-    url: "https://habitstreak.io",
-    status: "live",
-    statusNote: "Live with Stripe billing. Our first end-to-end product.",
-    category: "SaaS",
-    hasStripe: true,
-    pfi: 81,
-  },
-  {
-    name: "Gauntlet",
-    tagline: "AI-powered startup idea validator — test before you build",
-    url: "https://gauntlet-eight.vercel.app",
-    status: "live",
-    statusNote: "Live on Vercel. Launched Feb 19.",
-    category: "AI/ML",
-    hasStripe: false,
-    pfi: null,
-  },
-  {
-    name: "QuickFlip",
-    tagline: "Shift scheduling & staff management for restaurants",
-    url: "https://quickflip-six.vercel.app",
-    status: "live",
-    statusNote: "Live with demo data. Being pitched to first customer.",
-    category: "SaaS",
-    hasStripe: false,
-    pfi: null,
-  },
-  {
-    name: "KPI Compass",
-    tagline: "Track the metrics that matter for your business",
-    url: "https://kpi-compass-three.vercel.app",
-    status: "live",
-    statusNote: "Live on Vercel + Coolify. Functional dashboard.",
-    category: "Analytics",
-    hasStripe: false,
-    pfi: 75,
-  },
-  {
-    name: "StudioOS",
-    tagline: "All-in-one studio management for creators",
-    url: "https://studioos-delta.vercel.app",
-    status: "live",
-    statusNote: "Live on Vercel. Needs env vars on Coolify.",
-    category: "SaaS",
-    hasStripe: false,
-    pfi: 75,
-  },
-  {
-    name: "SchemaCraft",
-    tagline: "Visual database schema designer and SQL generator",
-    url: "https://schemacraft.vercel.app",
-    status: "live",
-    statusNote: "Live on Vercel. Static tool — no billing yet.",
-    category: "DevTools",
-    hasStripe: false,
-    pfi: 76,
-  },
-  {
-    name: "SlackTone AI",
-    tagline: "AI message tone adjustment for Slack",
-    url: "https://slacktone-ai.vercel.app",
-    status: "live",
-    statusNote: "Slack app installed. Needs marketplace submission.",
-    category: "SaaS",
-    hasStripe: false,
-    pfi: null,
-  },
-  {
-    name: "SkipTheFee",
-    tagline: "Find restaurants with no delivery fees near you",
-    url: "https://skipthefee.vercel.app",
-    status: "live",
-    statusNote: "Live on Vercel. Data enrichment ongoing.",
-    category: "SaaS",
-    hasStripe: false,
-    pfi: null,
-  },
+interface PortfolioStats {
+  totalInDb: number;
+  active: number;
+  inPipeline: number;
+  rejected: number;
+  killed: number;
+  deployed: number;
+  building: number;
+  withStripe: number;
+}
 
-  // === BUILDING — Code exists, being migrated or fixed ===
-  {
-    name: "SpecGen AI",
-    tagline: "AI-powered technical spec generator for dev teams",
-    url: null,
-    status: "building",
-    statusNote: "Stripe wired ($49/$149/$499). Migrating to Coolify — needs env vars.",
-    category: "DevTools",
-    hasStripe: true,
-    pfi: null,
-  },
-  {
-    name: "PunchList AI",
-    tagline: "AI construction punch list manager",
-    url: null,
-    status: "building",
-    statusNote: "Stripe wired ($29/$99/$299). Migrating to Coolify — needs env vars.",
-    category: "Operations",
-    hasStripe: true,
-    pfi: null,
-  },
-  {
-    name: "ScriptShift",
-    tagline: "Migrate Shopify Scripts before the June 2026 deadline",
-    url: null,
-    status: "building",
-    statusNote: "Shopify app. Migrating to Coolify.",
-    category: "E-Commerce",
-    hasStripe: false,
-    pfi: 76,
-  },
-  {
-    name: "BoostCart",
-    tagline: "Smart upsells for BigCommerce stores",
-    url: null,
-    status: "building",
-    statusNote: "BigCommerce app. Migrating to Coolify.",
-    category: "E-Commerce",
-    hasStripe: false,
-    pfi: 76,
-  },
-  {
-    name: "Inventory Watchdog",
-    tagline: "Shopify inventory alerts — never miss a stockout",
-    url: null,
-    status: "building",
-    statusNote: "Shopify app. Broken on Vercel, migrating to Coolify.",
-    category: "E-Commerce",
-    hasStripe: false,
-    pfi: 74,
-  },
-  {
-    name: "Sales Data Cleaner",
-    tagline: "AI-powered CRM data hygiene automation",
-    url: null,
-    status: "building",
-    statusNote: "Migrating to Coolify. Needs env vars.",
-    category: "Analytics",
-    hasStripe: false,
-    pfi: 76,
-  },
-  {
-    name: "VaaS",
-    tagline: "Validation-as-a-Service — API access to our startup validation engine",
-    url: null,
-    status: "building",
-    statusNote: "API product. Migrating to Coolify.",
-    category: "AI/ML",
-    hasStripe: false,
-    pfi: null,
-  },
-  {
-    name: "ScreenClean",
-    tagline: "Chrome extension — clean up screenshots before sharing",
-    url: null,
-    status: "building",
-    statusNote: "Chrome Web Store submission rejected. v1.1.0 ready for resubmission.",
-    category: "DevTools",
-    hasStripe: false,
-    pfi: null,
-  },
-  {
-    name: "BugWhisper",
-    tagline: "VS Code extension — inline bug reporting",
-    url: null,
-    status: "building",
-    statusNote: "VSIX packaged. Needs Azure DevOps PAT to publish.",
-    category: "DevTools",
-    hasStripe: false,
-    pfi: null,
-  },
-  {
-    name: "CodeDocs AI",
-    tagline: "VS Code extension — AI-powered code documentation",
-    url: null,
-    status: "building",
-    statusNote: "VSIX packaged. Needs Azure DevOps PAT to publish.",
-    category: "DevTools",
-    hasStripe: false,
-    pfi: null,
-  },
-
-  // === KILLED — Validated out or market closed ===
-  {
-    name: "Agentic Store Optimizer",
-    tagline: "Shopify agentic commerce optimization",
-    url: null,
-    status: "killed",
-    statusNote: "Killed Jan 29. PayPal acquiring Cymbio for same space. Enterprise-only play.",
-    category: "E-Commerce",
-    hasStripe: false,
-    pfi: null,
-  },
-  {
-    name: "AgentBridge",
-    tagline: "Shopify agent commerce bridge",
-    url: null,
-    status: "killed",
-    statusNote: "Paused Jan 29. Discovery-dependent, signal-to-noise too high.",
-    category: "E-Commerce",
-    hasStripe: false,
-    pfi: null,
-  },
-];
+interface PortfolioData {
+  portfolio: Venture[];
+  stats: PortfolioStats;
+  lastUpdated: string;
+}
 
 const categories: Category[] = ["All", "SaaS", "E-Commerce", "DevTools", "AI/ML", "Analytics", "Operations"];
 
@@ -239,21 +48,44 @@ const statusConfig = {
 type StatusFilter = "All" | Status;
 
 export default function PortfolioSection() {
+  const [data, setData] = useState<PortfolioData | null>(null);
+  const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState<Category>("All");
   const [activeStatus, setActiveStatus] = useState<StatusFilter>("All");
 
-  const filtered = ventures
+  useEffect(() => {
+    fetch("/api/portfolio")
+      .then(r => r.json())
+      .then(setData)
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="px-6 py-20 bg-gradient-to-b from-background to-muted/30" id="portfolio">
+        <div className="flex items-center justify-center gap-3 text-muted-foreground">
+          <Loader2 className="w-5 h-5 animate-spin" />
+          <span>Loading portfolio...</span>
+        </div>
+      </section>
+    );
+  }
+
+  if (!data) return null;
+
+  const { portfolio, stats } = data;
+
+  const filtered = portfolio
     .filter(v => activeCategory === "All" || v.category === activeCategory)
     .filter(v => activeStatus === "All" || v.status === activeStatus);
 
   const statusCounts = {
-    live: ventures.filter(v => v.status === "live").length,
-    building: ventures.filter(v => v.status === "building").length,
-    broken: ventures.filter(v => v.status === "broken").length,
-    killed: ventures.filter(v => v.status === "killed").length,
+    live: portfolio.filter(v => v.status === "live").length,
+    building: portfolio.filter(v => v.status === "building").length,
+    broken: portfolio.filter(v => v.status === "broken").length,
+    killed: portfolio.filter(v => v.status === "killed").length,
   };
-
-  const withStripe = ventures.filter(v => v.hasStripe).length;
 
   return (
     <section className="px-6 py-20 bg-gradient-to-b from-background to-muted/30" id="portfolio">
@@ -261,7 +93,7 @@ export default function PortfolioSection() {
         <div className="text-center space-y-4">
           <Badge variant="outline" className="mb-4">Building in Open</Badge>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-            {ventures.length} ventures. <span className="text-muted-foreground">No BS.</span>
+            {portfolio.length} ventures. <span className="text-muted-foreground">No BS.</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             We show everything — what&apos;s live, what&apos;s broken, and what we killed.
@@ -269,7 +101,7 @@ export default function PortfolioSection() {
           </p>
         </div>
 
-        {/* Stats bar */}
+        {/* Stats bar — includes DB pipeline stats */}
         <div className="flex flex-wrap justify-center gap-6 text-sm">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-emerald-400" />
@@ -279,12 +111,20 @@ export default function PortfolioSection() {
             <Wrench className="w-4 h-4 text-amber-400" />
             <span className="text-muted-foreground"><strong className="text-foreground">{statusCounts.building}</strong> building</span>
           </div>
+          {statusCounts.killed > 0 && (
+            <div className="flex items-center gap-2">
+              <XCircle className="w-4 h-4 text-zinc-500" />
+              <span className="text-muted-foreground"><strong className="text-foreground">{statusCounts.killed}</strong> killed</span>
+            </div>
+          )}
           <div className="flex items-center gap-2">
-            <XCircle className="w-4 h-4 text-zinc-500" />
-            <span className="text-muted-foreground"><strong className="text-foreground">{statusCounts.killed}</strong> killed</span>
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.withStripe}</strong> with billing</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-muted-foreground"><strong className="text-foreground">{withStripe}</strong> with billing</span>
+          <div className="flex items-center gap-2 opacity-60">
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.inPipeline}</strong> in pipeline</span>
+          </div>
+          <div className="flex items-center gap-2 opacity-60">
+            <span className="text-muted-foreground"><strong className="text-foreground">{stats.totalInDb}</strong> total evaluated</span>
           </div>
         </div>
 
@@ -308,7 +148,7 @@ export default function PortfolioSection() {
         {/* Category filter */}
         <div className="flex flex-wrap justify-center gap-2">
           {categories.map((cat) => {
-            const count = ventures.filter(v =>
+            const count = portfolio.filter(v =>
               (activeStatus === "All" || v.status === activeStatus) &&
               (cat === "All" || v.category === cat)
             ).length;
@@ -380,7 +220,7 @@ export default function PortfolioSection() {
 
         <div className="text-center space-y-3">
           <p className="text-sm text-muted-foreground">
-            Showing {filtered.length} of {ventures.length} ventures
+            Showing {filtered.length} of {portfolio.length} ventures · Updated live from our pipeline database
           </p>
           <div className="max-w-xl mx-auto text-xs text-muted-foreground/70 space-y-1">
             <p>
@@ -388,8 +228,8 @@ export default function PortfolioSection() {
               Not every product has been scored yet.
             </p>
             <p>
-              Previously we showed 40+ products with inflated scores. We stripped it back to what&apos;s real.
-              This is what building in the open actually looks like.
+              Our pipeline has evaluated {stats.totalInDb} venture ideas total. {stats.inPipeline} are currently in the validation pipeline.
+              This page updates automatically as ventures progress.
             </p>
           </div>
         </div>
