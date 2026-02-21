@@ -11,11 +11,11 @@ const DEPLOYED_APPS: Record<string, {
   note: string;
 }> = {
   "HabitStreak": {
-    url: "http://habitstreak.178.156.240.80.sslip.io",
+    url: "https://habitstreak.io",
     status: "live",
     hasStripe: true,
     pfi: 81,
-    note: "5/5 audit: signup→habit→streak→Stripe. Migrated to Coolify.",
+    note: "5/5 audit: signup→habit→streak→Stripe. Live at habitstreak.io.",
   },
   "Gauntlet": {
     url: "https://vaas.178.156.240.80.sslip.io",
@@ -64,7 +64,7 @@ const DEPLOYED_APPS: Record<string, {
     status: "live",
     hasStripe: true,
     pfi: null,
-    note: "Live: compare DoorDash/GrubHub fees. Featured listing $29/$99/mo.",
+    note: "Live at skipthefee.app. Chrome extension submitted. $29/$99/mo featured listing.",
   },
   "SpecGen AI": {
     url: null,
