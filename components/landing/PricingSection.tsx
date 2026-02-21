@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, ArrowRight, Zap, Building2, Rocket, Hammer, Crown } from "lucide-react";
 
-const VAAS_URL = "https://vaas-greenbelt.vercel.app";
+const VAAS_URL = "https://vaas.178.156.240.80.sslip.io";
 
 const validateTiers = [
   {

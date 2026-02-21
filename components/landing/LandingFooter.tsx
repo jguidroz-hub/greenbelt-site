@@ -4,6 +4,8 @@ import { CheckCircle2, ExternalLink } from "lucide-react";
 
 export default function LandingFooter() {
   const links = [
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "Pricing", href: "/pricing" },
     { label: "Technology", href: "/technology" },
     { label: "Blog", href: "/blog" },
     { label: "Changelog", href: "/changelog" },
@@ -19,7 +21,7 @@ export default function LandingFooter() {
               System Operational
             </Badge>
             <span className="text-sm text-muted-foreground">
-              Latest Update: February 10, 2026
+              Latest Update: {new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
             </span>
           </div>
 

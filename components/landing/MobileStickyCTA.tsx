@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-const VAAS_URL = "https://vaas-greenbelt.vercel.app";
+const VAAS_URL = "https://vaas.178.156.240.80.sslip.io";
 
 export default function MobileStickyCTA() {
   return (

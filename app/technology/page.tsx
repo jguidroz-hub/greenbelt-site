@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "How Greenbelt's adversarial AI validation works under the hood. Builder vs Guardian debate process explained.",
 };
 
-const VAAS_URL = "https://vaas-greenbelt.vercel.app";
+const VAAS_URL = "https://vaas.178.156.240.80.sslip.io";
 
 const capabilities = [
   { icon: Shield, title: "Adversarial Validation", description: "Your idea faces a structured debate between a Builder agent (who argues for it) and a Guardian agent (who tries to kill it). An Adjudicator weighs the evidence and delivers a verdict." },

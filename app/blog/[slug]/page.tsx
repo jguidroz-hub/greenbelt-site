@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 import { blogPosts, postContent } from "@/lib/blog-data";
 
-const VAAS_URL = "https://vaas-greenbelt.vercel.app";
+const VAAS_URL = "https://vaas.178.156.240.80.sslip.io";
 
 export async function generateStaticParams() {
   return blogPosts.filter((p) => p.published).map((p) => ({ slug: p.slug }));

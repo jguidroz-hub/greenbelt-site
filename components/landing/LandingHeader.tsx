@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-const VAAS_URL = "https://vaas-greenbelt.vercel.app";
+const VAAS_URL = "https://vaas.178.156.240.80.sslip.io";
 const APP_URL = "https://greenbelt-orchestrator-production.up.railway.app";
 
 export default function LandingHeader() {
@@ -18,7 +18,10 @@ export default function LandingHeader() {
           <Link href="/#how-it-works">
             <Button variant="ghost" size="sm">How It Works</Button>
           </Link>
-          <Link href="/#pricing">
+          <Link href="/portfolio">
+            <Button variant="ghost" size="sm">Portfolio</Button>
+          </Link>
+          <Link href="/pricing">
             <Button variant="ghost" size="sm">Pricing</Button>
           </Link>
           <Link href="/technology">
@@ -27,9 +30,6 @@ export default function LandingHeader() {
           <Link href="/blog">
             <Button variant="ghost" size="sm">Blog</Button>
           </Link>
-          <a href={VAAS_URL} target="_blank" rel="noopener noreferrer">
-            <Button variant="ghost" size="sm">Validate Free</Button>
-          </a>
         </nav>
         <div className="flex items-center gap-2">
           <a href={VAAS_URL} target="_blank" rel="noopener noreferrer">

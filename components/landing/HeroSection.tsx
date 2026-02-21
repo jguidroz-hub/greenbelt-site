@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Factory, Rocket, Sparkles } from "lucide-react";
 
-const VAAS_URL = "https://vaas-greenbelt.vercel.app";
+const VAAS_URL = "https://vaas.178.156.240.80.sslip.io";
 
 export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
