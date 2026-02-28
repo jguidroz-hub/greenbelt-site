@@ -47,6 +47,8 @@ export default function LandingFooter() {
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
               <span>·</span>
+              <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+              <span>·</span>
               <a href="mailto:jon@projectgreenbelt.com" className="hover:text-foreground transition-colors">Contact</a>
             </div>
           </div>
