@@ -59,12 +59,33 @@ const DEPLOYED_APPS: Record<string, {
     pfi: null,
     note: "Needs Slack credentials & marketplace submission.",
   },
-  "SkipTheFee": {
-    url: "https://skipthefee.app",
+  "Eddy": {
+    url: "https://eddy.delivery",
     status: "live",
     hasStripe: true,
     pfi: null,
-    note: "Live at skipthefee.app. Chrome extension submitted. $29/$99/mo featured listing.",
+    note: "Kayak for food delivery. Chrome extension + PWA. 4,200+ restaurants across 30 cities. Featured listings $29/$99/mo.",
+  },
+  "Relocate": {
+    url: "https://relocate-ai.178.156.240.80.sslip.io",
+    status: "live",
+    hasStripe: true,
+    pfi: null,
+    note: "AI relocation reports for families. $149/report via Stripe checkout. Webhook notifications wired.",
+  },
+  "TaxPal": {
+    url: "https://p4gscgkkscs8k4ogc088w8ss.178.156.240.80.sslip.io",
+    status: "live",
+    hasStripe: false,
+    pfi: null,
+    note: "Tax preparation tool. Deployed on Coolify.",
+  },
+  "Sales Data Cleaner": {
+    url: "https://sales-data-cleaner.178.156.240.80.sslip.io",
+    status: "live",
+    hasStripe: false,
+    pfi: null,
+    note: "CRM data deduplication tool. Deployed on Coolify.",
   },
   "SpecGen AI": {
     url: "https://specgen-ai.178.156.240.80.sslip.io",
