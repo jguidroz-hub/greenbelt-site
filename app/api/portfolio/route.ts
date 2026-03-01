@@ -9,6 +9,7 @@ const DEPLOYED_APPS: Record<string, {
   hasStripe: boolean;
   pfi: number | null;
   note: string;
+  tagline?: string;
 }> = {
   "HabitStreak": {
     url: "https://habitstreak.io",
@@ -23,6 +24,7 @@ const DEPLOYED_APPS: Record<string, {
     hasStripe: true,
     pfi: null,
     note: "5/5 audit: free tier live, $29/$199 Stripe plans. HTTPS.",
+    tagline: "Validation-as-a-Service for Startup Ideas",
   },
   "QuickFlip": {
     url: "https://quickflip.178.156.240.80.sslip.io",
@@ -30,6 +32,7 @@ const DEPLOYED_APPS: Record<string, {
     hasStripe: true,
     pfi: null,
     note: "5/5 audit: register→rank→Stripe checkout. $29/$79/mo plans live.",
+    tagline: "Restaurant Shift Scheduling & Management",
   },
   "KPI Compass": {
     url: "https://kpi-compass.178.156.240.80.sslip.io",
@@ -65,6 +68,7 @@ const DEPLOYED_APPS: Record<string, {
     hasStripe: true,
     pfi: null,
     note: "Kayak for food delivery. Chrome extension + website. 19,000+ restaurants across 30 cities. Featured listings $29/$99/mo.",
+    tagline: "Compare Food Delivery Prices Across Apps",
   },
   "Relocate": {
     url: "https://relocate-ai.178.156.240.80.sslip.io",
@@ -72,6 +76,7 @@ const DEPLOYED_APPS: Record<string, {
     hasStripe: true,
     pfi: null,
     note: "AI relocation reports for families. $149/report via Stripe checkout. Webhook notifications wired.",
+    tagline: "AI-Powered Relocation Reports for Families",
   },
   "TaxPal": {
     url: "https://p4gscgkkscs8k4ogc088w8ss.178.156.240.80.sslip.io",
@@ -93,6 +98,7 @@ const DEPLOYED_APPS: Record<string, {
     hasStripe: true,
     pfi: null,
     note: "AI construction specification writer. Generates CSI MasterFormat specs from BIM data. $49/$149/$499.",
+    tagline: "AI Construction Specification Writer",
   },
   "PunchList AI": {
     url: "https://punchlist-ai.178.156.240.80.sslip.io",
@@ -100,6 +106,7 @@ const DEPLOYED_APPS: Record<string, {
     hasStripe: true,
     pfi: null,
     note: "AI-powered construction punch lists. Photo defect analysis + Procore integration. $29/$99/$299.",
+    tagline: "AI-Powered Construction Punch Lists",
   },
   "ScriptShift": {
     url: "https://scriptshift.178.156.240.80.sslip.io",
@@ -107,6 +114,7 @@ const DEPLOYED_APPS: Record<string, {
     hasStripe: false,
     pfi: 76,
     note: "Shopify Scripts → Functions migration tool. Auto-code generation. Submission checklist ready.",
+    tagline: "Migrate Shopify Scripts to Functions Automatically",
   },
   "BoostCart": {
     url: "https://boostcart.178.156.240.80.sslip.io",
@@ -121,6 +129,7 @@ const DEPLOYED_APPS: Record<string, {
     hasStripe: false,
     pfi: 74,
     note: "Shopify inventory monitoring with AI forecasting. App Store submission #102775 pending review.",
+    tagline: "AI Inventory Monitoring for Shopify",
   },
   "UpsellPro": {
     url: "https://upsellpro.projectgreenbelt.com",
@@ -189,7 +198,7 @@ export async function GET() {
 
       portfolio.push({
         name: displayName,
-        tagline: tagline || displayName,
+        tagline: tagline || info.tagline || displayName,
         url: info.url,
         status: info.status,
         hasStripe: info.hasStripe,
