@@ -7,6 +7,7 @@ export default function LandingFooter() {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },
     { label: "Technology", href: "/technology" },
+    { label: "Restaurants", href: "/restaurants" },
     { label: "Blog", href: "/blog" },
     { label: "Changelog", href: "/changelog" },
   ];

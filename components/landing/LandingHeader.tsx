@@ -27,6 +27,9 @@ export default function LandingHeader() {
           <Link href="/technology">
             <Button variant="ghost" size="sm">Technology</Button>
           </Link>
+          <Link href="/restaurants">
+            <Button variant="ghost" size="sm">Restaurants</Button>
+          </Link>
           <Link href="/blog">
             <Button variant="ghost" size="sm">Blog</Button>
           </Link>
