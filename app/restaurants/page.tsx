@@ -120,11 +120,6 @@ export default function RestaurantsPage() {
                 Free Consultation <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
-            <a href="tel:+15044309603">
-              <Button variant="outline" size="lg" className="text-base px-8">
-                Call Us: (504) 430-9603
-              </Button>
-            </a>
           </div>
         </div>
       </section>
