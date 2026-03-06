@@ -15,7 +15,7 @@ import {
 export const metadata: Metadata = {
   title: "Restaurant Solutions — Greenbelt",
   description:
-    "Technology solutions for independent restaurants. Delivery infrastructure, POS modernization, and operational tools to compete with the chains.",
+    "Technology solutions for independent restaurants nationwide. Delivery infrastructure, POS modernization, and operational tools to compete with the chains.",
   openGraph: {
     title: "Restaurant Solutions — Greenbelt",
     description:
@@ -60,7 +60,7 @@ const services = [
     icon: Users,
     title: "Local Support",
     description:
-      "We're based in Austin, TX and work with restaurants in person. No call centers, no ticket queues — a real partner who shows up.",
+      "Headquartered in Austin, TX — working with restaurants nationwide. No call centers, no ticket queues — a real partner who shows up.",
   },
 ];
 
@@ -110,7 +110,7 @@ export default function RestaurantsPage() {
             <span className="text-emerald-500"> better technology</span>
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            We help independent restaurants in Austin modernize their operations —
+            We help independent restaurants modernize their operations —
             from POS systems to delivery infrastructure. Compete with the chains
             without their overhead.
           </p>
@@ -183,8 +183,8 @@ export default function RestaurantsPage() {
           <div className="space-y-6">
             {[
               {
-                title: "We're local",
-                desc: "Based in Austin, TX. We visit your restaurant, understand your workflow, and set things up in person.",
+                title: "We show up",
+                desc: "Headquartered in Austin, TX with restaurants across the country. We build real relationships — not just support tickets.",
               },
               {
                 title: "We're vendor-neutral",
@@ -196,7 +196,7 @@ export default function RestaurantsPage() {
               },
               {
                 title: "We don't disappear",
-                desc: "Ongoing support, not a one-time sale. We're building long-term relationships with Austin's restaurant community.",
+                desc: "Ongoing support, not a one-time sale. We're building long-term relationships with the independent restaurant community.",
               },
             ].map((item) => (
               <div
@@ -249,7 +249,7 @@ export default function RestaurantsPage() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Project Greenbelt · Austin, TX
+              © {new Date().getFullYear()} Project Greenbelt
             </p>
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <Link href="/" className="hover:text-foreground transition-colors">
