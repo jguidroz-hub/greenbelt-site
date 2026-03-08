@@ -45,9 +45,150 @@ export const blogPosts: BlogPost[] = [
     category: "Research",
     published: true,
   },
+  {
+    slug: "eddy-kayak-for-food-delivery",
+    title: "Building Eddy: The Kayak for Food Delivery That Nobody Asked For (But Everyone Needs)",
+    description: "We built a Chrome extension and website that compares food delivery prices across DoorDash, Uber Eats, and Grubhub. 13,963 restaurants. 30 cities. Here's the story.",
+    date: "March 7, 2026",
+    readTime: "7 min read",
+    category: "Product Launch",
+    published: true,
+  },
+  {
+    slug: "studioos-creative-project-management",
+    title: "StudioOS: Why We Built a Project Management Tool for Creative Studios (And What We Learned)",
+    description: "Creative agencies don't work like software teams. So why do they keep using software team tools? We built StudioOS to fix that.",
+    date: "March 7, 2026",
+    readTime: "6 min read",
+    category: "Product Launch",
+    published: true,
+  },
 ];
 
 export const postContent: Record<string, string> = {
+
+  "eddy-kayak-for-food-delivery": `You know that feeling when you're hungry, you open three delivery apps, and you realize the same pad thai is $14.99 on DoorDash, $16.49 on Uber Eats, and $13.99 on Grubhub? And then there's the delivery fee, the service fee, the "we're sorry for existing" fee?
+
+Yeah. We got tired of that too.
+
+## The Problem Nobody Talks About
+
+Food delivery is a $350 billion global market, and every platform charges different prices for the same food from the same restaurant. The markup varies wildly — sometimes 15%, sometimes 40%. And the fees? A labyrinth designed by someone who clearly failed their UX class.
+
+Kayak solved this for flights. Nobody had solved it for food.
+
+## What We Built
+
+**Eddy** is two things:
+
+**1. A Chrome Extension** that overlays price comparisons directly on DoorDash, Uber Eats, and Grubhub. When you're browsing a restaurant, Eddy shows you what it costs on the other platforms — and whether you can order directly from the restaurant (spoiler: you usually can, and it's cheaper).
+
+**2. A Website (eddy.delivery)** with a searchable database of 13,963 restaurants across 30 metro areas. Every listing shows which delivery platforms carry it, estimated prices, and — this is the key part — a direct ordering link when available.
+
+## The Direct Ordering Play
+
+Here's the thing most people don't realize: many restaurants have their own ordering systems. They use Square, Toast, ChowNow, or their own website. When you order direct, the restaurant keeps 100% of the revenue instead of paying 15-30% to DoorDash.
+
+Eddy surfaces these direct ordering links. Out of 13,963 restaurants in our database, **12,091 have direct ordering URLs**. That's 87%.
+
+The pitch to consumers: save money. The pitch to restaurants: we send you customers who order direct. Win-win, no middleman fees.
+
+## Technical Stack
+
+- **Extension**: Manifest V3 Chrome extension with content scripts that detect restaurant pages
+- **Website**: Next.js on Coolify, server-rendered for SEO
+- **Data**: Static dataset (top-restaurants.ts) compiled from public APIs and manual verification
+- **Revenue**: Featured restaurant listings at $29/mo (basic) and $99/mo (premium)
+
+## The Overlay Problem
+
+The trickiest engineering challenge was the overlay. When a user visits a DoorDash restaurant page, Eddy needs to:
+1. Detect which restaurant they're viewing
+2. Match it against our database
+3. Show a non-intrusive comparison overlay
+4. Re-show it when they navigate (SPA detection — DoorDash doesn't do full page loads)
+
+Version 0.5.0 had a bug where the overlay would show once and then disappear for 24 hours. Users thought the extension was broken. In v0.5.1, we fixed it to re-show after 30 minutes and added proper SPA navigation detection via MutationObserver.
+
+## Traction So Far
+
+- Published on Chrome Web Store (v0.5.1 pending review)
+- eddy.delivery indexed by Google, 43 pages crawling
+- Reddit post on r/UTAustin: 2,700 views (score: 0 — we learned that Reddit hates self-promotion)
+- 30 metro pages for SEO (Austin, NYC, LA, Chicago, etc.)
+
+## What's Next
+
+- Mobile PWA (no native app yet — proving demand first)
+- Real-time price fetching via delivery platform APIs
+- Restaurant analytics dashboard (show restaurants how many clicks they get)
+- Affiliate revenue from delivery platforms
+
+## The Honest Take
+
+Eddy is a consumer play in a market dominated by well-funded incumbents. The moat is thin — any of the delivery apps could build this. But they won't, because showing price comparisons would expose their markup game. That's the wedge.
+
+The direct ordering angle is the real business. If we can drive enough volume to restaurants' own ordering systems, we become the anti-DoorDash — and restaurants will pay for that.
+
+Is it a venture-scale business? Probably not. Is it a solid, revenue-generating product that solves a real problem? Absolutely. And sometimes that's enough.`,
+
+  "studioos-creative-project-management": `Every creative agency I've ever talked to uses either Asana, Monday.com, or — god help them — a combination of Trello boards and Google Sheets. None of these tools were built for how creative work actually happens.
+
+## The Creative Workflow Problem
+
+Software development has a well-understood workflow: backlog → sprint → code → review → deploy. Linear, predictable, measurable.
+
+Creative work is nothing like that.
+
+A brand identity project goes through discovery → moodboarding → concepts → client feedback → revisions → more feedback → existential crisis → final revisions → delivery. There are branching revision trees, client approval gates, asset versioning nightmares, and the ever-present scope creep that turns a "simple logo refresh" into a full brand overhaul.
+
+Asana doesn't understand revision rounds. Monday.com doesn't track asset versions. Trello... Trello is a wall of sticky notes pretending to be project management.
+
+## What StudioOS Does Differently
+
+**StudioOS** is project management built specifically for creative studios — design agencies, video production houses, branding firms, and marketing teams.
+
+### Project Workspaces, Not Task Lists
+
+Every project gets a workspace with phases (Discovery, Concept, Production, Delivery). Within each phase, you track deliverables, not tasks. A deliverable might be "Homepage Hero Concept" — it has its own revision history, client feedback thread, and approval status.
+
+### Revision Tracking
+
+When a client says "I liked version 3 better," you can actually pull up version 3. Every deliverable tracks its revision tree — who made changes, what the client said, which version was approved. No more digging through email threads or Slack DMs.
+
+### Client Portals
+
+Clients get a view into their projects without seeing your internal chaos. They can approve deliverables, leave feedback on specific versions, and see timelines — all without a login to your project management tool.
+
+### Time & Budget
+
+Creative projects have budgets, and they almost always go over. StudioOS tracks time against budget in real-time, so the project lead can see "we've used 80% of budget and we're only 60% through production" before it becomes a crisis.
+
+## The Build
+
+StudioOS runs on our standard stack:
+- Next.js with magic-link authentication
+- Prisma + Postgres for data
+- Real-time updates via polling (WebSockets planned)
+- Stripe billing at $79/mo per studio
+
+The magic-link auth was a deliberate choice. Creative teams hate passwords. They hate SSO setup. They want to click a link and get in. Magic links are dead simple — enter email, click the link, you're in.
+
+## What We Learned
+
+**1. Creative people are opinionated about UI.** When your users are designers, your UI better be good. We went through 3 design iterations before the visual language felt right.
+
+**2. Approval workflows are the killer feature.** The #1 pain point isn't "tracking tasks." It's "where is the client feedback and which version did they approve?" Every conversation about StudioOS ends up here.
+
+**3. Integrations matter more than features.** Studios live in Figma, Google Drive, and Dropbox. If StudioOS can't connect to those, it's just another silo. This is our top priority for v2.
+
+## Current Status
+
+StudioOS is live with magic-link login, project workspaces, and Stripe billing at $79/mo. We're in early validation — talking to studios, getting feedback, iterating.
+
+The creative project management space is crowded but underserved. Every tool tries to be everything for everyone. We're trying to be the one tool that actually understands how creative work flows.
+
+Sometimes the best product strategy is just talking to your users and building what they ask for. Revolutionary, I know.`,
   "14-products-one-weekend": `Everyone talks about shipping fast. We wanted to see what happens when you remove humans from the loop entirely and let an AI factory build real products — not demos, not mockups, but production apps with authentication, billing, and security hardening.
 
 Here's the honest account of what happened.

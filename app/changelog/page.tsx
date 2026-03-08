@@ -20,6 +20,10 @@ const changeTypeConfig: Record<ChangeType, { icon: typeof Sparkles; color: strin
 };
 
 const changelog: { date: string; type: ChangeType; title: string; description: string }[] = [
+  { date: "March 7, 2026", type: "feature", title: "FMK Picks — NFL Betting Pool App", description: "Launched FMK, a standalone NFL picks pool with Three Horse Wagon parlays, Double Dare, Shorting, and Playoff Juice™️. 19 pages, full auth, leaderboard, chat, and season awards." },
+  { date: "March 7, 2026", type: "feature", title: "Blog: Eddy & StudioOS Product Launches", description: "Published deep dives on Eddy (Kayak for food delivery, 13,963 restaurants across 30 cities) and StudioOS (project management for creative studios)." },
+  { date: "March 7, 2026", type: "improvement", title: "Portfolio Updated: 20 Live Products", description: "Added FMK, IssueAI, and BugWhisper to the portfolio. Updated all URLs to projectgreenbelt.com custom domains." },
+  { date: "March 7, 2026", type: "improvement", title: "App Store Submissions", description: "Inventory Watchdog and ScriptShift submitted to Shopify App Store. BoostCart under BigCommerce review. IssueAI pending Atlassian Marketplace review." },
   { date: "February 10, 2026", type: "feature", title: "Per-Report Pricing & Annual Plans", description: "Buy a single Guardian Debate ($14.99) or Venture Verdict ($49.99) without subscribing. Annual plans save up to 37%." },
   { date: "February 10, 2026", type: "feature", title: "PDF Report Export", description: "Every Guardian Debate and Venture Verdict now generates a shareable, printable report with full verdict details, debate transcript, and research dossier." },
   { date: "February 10, 2026", type: "feature", title: "Idea Generator & Library", description: "Don't have an idea? Browse our curated idea library or generate personalized suggestions based on your skills and budget." },

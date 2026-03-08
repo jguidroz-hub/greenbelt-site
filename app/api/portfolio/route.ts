@@ -27,7 +27,7 @@ const DEPLOYED_APPS: Record<string, {
     tagline: "Validation-as-a-Service for Startup Ideas",
   },
   "QuickFlip": {
-    url: "https://quickflip.178.156.240.80.sslip.io",
+    url: "https://quickflip.projectgreenbelt.com",
     status: "live",
     hasStripe: true,
     pfi: null,
@@ -35,28 +35,28 @@ const DEPLOYED_APPS: Record<string, {
     tagline: "Restaurant Shift Scheduling & Management",
   },
   "KPI Compass": {
-    url: "https://kpi-compass.178.156.240.80.sslip.io",
+    url: "https://kpi-compass.projectgreenbelt.com",
     status: "live",
     hasStripe: true,
     pfi: 75,
     note: "5/5 audit: login→KPI CRUD dashboard→Stripe checkout live.",
   },
   "StudioOS": {
-    url: "https://studioos.178.156.240.80.sslip.io",
+    url: "https://studioos.projectgreenbelt.com",
     status: "live",
     hasStripe: true,
     pfi: 75,
     note: "5/5 audit: magic-link login, project workspace, $79/mo Stripe.",
   },
   "SchemaCraft": {
-    url: "https://schemacraft.178.156.240.80.sslip.io",
+    url: "https://schemacraft.projectgreenbelt.com",
     status: "live",
     hasStripe: true,
     pfi: 76,
     note: "5/5 audit: signup→schema gen→save/retrieve→Stripe $9/$29/mo.",
   },
   "SlackTone AI": {
-    url: "https://slacktone-ai.178.156.240.80.sslip.io",
+    url: "https://slacktone.projectgreenbelt.com",
     status: "live",
     hasStripe: false,
     pfi: null,
@@ -71,7 +71,7 @@ const DEPLOYED_APPS: Record<string, {
     tagline: "Compare Food Delivery Prices Across Apps",
   },
   "Relocate": {
-    url: "https://relocate-ai.178.156.240.80.sslip.io",
+    url: "https://relocate.projectgreenbelt.com",
     status: "live",
     hasStripe: true,
     pfi: null,
@@ -79,21 +79,21 @@ const DEPLOYED_APPS: Record<string, {
     tagline: "AI-Powered Relocation Reports for Families",
   },
   "TaxPal": {
-    url: "https://p4gscgkkscs8k4ogc088w8ss.178.156.240.80.sslip.io",
+    url: "https://taxpal.projectgreenbelt.com",
     status: "live",
     hasStripe: false,
     pfi: null,
     note: "Smart tax planning for freelancers & 1099 contractors. Quarterly estimates, deduction tracking.",
   },
   "Sales Data Cleaner": {
-    url: "https://sales-data-cleaner.178.156.240.80.sslip.io",
+    url: "https://sales-data-cleaner.projectgreenbelt.com",
     status: "live",
     hasStripe: false,
     pfi: null,
     note: "AI-powered CRM data hygiene. Deduplication, standardization, and quality monitoring.",
   },
   "SpecGen AI": {
-    url: "https://specgen-ai.178.156.240.80.sslip.io",
+    url: "https://specgen-ai.projectgreenbelt.com",
     status: "live",
     hasStripe: true,
     pfi: null,
@@ -101,7 +101,7 @@ const DEPLOYED_APPS: Record<string, {
     tagline: "AI Construction Specification Writer",
   },
   "PunchList AI": {
-    url: "https://punchlist-ai.178.156.240.80.sslip.io",
+    url: "https://punchlist-ai.projectgreenbelt.com",
     status: "live",
     hasStripe: true,
     pfi: null,
@@ -109,7 +109,7 @@ const DEPLOYED_APPS: Record<string, {
     tagline: "AI-Powered Construction Punch Lists",
   },
   "ScriptShift": {
-    url: "https://scriptshift.178.156.240.80.sslip.io",
+    url: "https://scriptshift.projectgreenbelt.com",
     status: "live",
     hasStripe: false,
     pfi: 76,
@@ -117,14 +117,14 @@ const DEPLOYED_APPS: Record<string, {
     tagline: "Migrate Shopify Scripts to Functions Automatically",
   },
   "BoostCart": {
-    url: "https://boostcart.178.156.240.80.sslip.io",
+    url: "https://boostcart.projectgreenbelt.com",
     status: "live",
     hasStripe: false,
     pfi: 76,
     note: "BigCommerce upsell app. Review reply sent addressing 9 items. Awaiting re-review.",
   },
   "Inventory Watchdog": {
-    url: "https://inventory-watchdog.178.156.240.80.sslip.io",
+    url: "https://inventory-watchdog.projectgreenbelt.com",
     status: "live",
     hasStripe: false,
     pfi: 74,
@@ -138,6 +138,31 @@ const DEPLOYED_APPS: Record<string, {
     pfi: null,
     note: "Post-purchase upsells for Shopify with AI-powered A/B testing. One-click checkout.",
   },
+  "FMK Picks": {
+    url: "https://fmk.projectgreenbelt.com",
+    status: "live",
+    hasStripe: false,
+    pfi: null,
+    note: "NFL picks pool with Three Horse Wagon, Double Dare, Shorting, Playoff Juice™️. Full auth, 19 pages.",
+    tagline: "The Only NFL Picks Pool That Doesn't Suck",
+  },
+  "IssueAI": {
+    url: null,
+    status: "building",
+    hasStripe: false,
+    pfi: null,
+    note: "AI-powered Jira issue analysis for Atlassian Marketplace. Pending review (ECOHELP-117068).",
+    tagline: "AI Issue Analysis for Jira",
+  },
+  "BugWhisper": {
+    url: null,
+    status: "building",
+    hasStripe: true,
+    pfi: null,
+    note: "Slack bug reporting assistant. $9/$29 plans. Pending deployment.",
+    tagline: "AI Bug Reporter for Slack",
+  },
+
 };
 
 // Map DB venture names to display names (DB has "Name - Tagline" format)

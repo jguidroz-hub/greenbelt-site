@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, CheckCircle2, Sparkles } from "lucide-react";
 
-const VAAS_URL = "https://vaas.178.156.240.80.sslip.io";
+const VAAS_URL = "https://gauntlet.projectgreenbelt.com";
 
 export default function FinalCTASection() {
   return (

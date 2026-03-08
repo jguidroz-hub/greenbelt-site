@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Factory, Rocket, Sparkles } from "lucide-react";
 
-const VAAS_URL = "https://vaas.178.156.240.80.sslip.io";
+const VAAS_URL = "https://gauntlet.projectgreenbelt.com";
 
 export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -12,7 +12,7 @@ export default function HeroSection() {
   const features = [
     { icon: Shield, text: "Adversarial AI validation", color: "text-rose-400" },
     { icon: Factory, text: "Autonomous product factory", color: "text-cyan-400" },
-    { icon: Rocket, text: "17 live products shipped", color: "text-emerald-400" },
+    { icon: Rocket, text: "20 live products shipped", color: "text-emerald-400" },
   ];
 
   return (
